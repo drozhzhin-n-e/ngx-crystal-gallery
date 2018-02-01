@@ -1,0 +1,25 @@
+<div class="cg-close" (click)="closeOverlay()"></div>
+
+<div class="cg-spinner" *ngIf="!currImageLoaded"></div>
+
+<div 
+	class="cg-wrapper" 
+	[class.cg-hide]="!wrapperProp"
+	[ngStyle]="{
+		'width': windowWidth+'px', 
+		'height': windowHeight+'px',
+		'transform': 'matrix('+ wrapperWidth +', 0, 0, '+  wrapperHeight +', 0, 0)'
+	}">
+
+	<img 
+		class="cg-curr-image" 
+		#currImageElem 
+		[src]="currImagePath.full" 
+		[class.cg-show]="currImageLoaded" 
+		(load)="onImageLoaded()"
+	/>
+
+</div>
+
+<div class="cg-prev" [hidden]="isFirst && !this.config.loop" (click)="prev()"></div>
+<div class="cg-next" [hidden]="isLast && !this.config.loop" (click)="next()"></div>

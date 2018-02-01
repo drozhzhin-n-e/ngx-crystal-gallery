@@ -1,0 +1,36 @@
+<div class="cg-back" (click)="closeOverlay()"></div>
+
+<div 
+	class="cg-wrapper" 
+	[class.cg-landscape]="landscapeMode"
+	pinch [isLast]="isLast" [isFirst]="isFirst" (events)="handlePinchEvents($event)"
+	#wrapper>
+	<div class="cg-image-wrap cg-prev-image">
+		<img 
+			*ngIf="prevImagePath"
+			[src]="prevImagePath.full" 
+			[class.cg-hide]="!prevImage.loaded"
+			(load)="onImageLoaded('prevImage')"
+		/>
+		<div class="cg-spinner" *ngIf="!prevImage.loaded && prevImagePath"></div>
+	</div>
+
+	<div class="cg-image-wrap cg-curr-image" *ngIf="currImage.show">
+		<img 
+			[src]="currImagePath.full" 
+			[class.cg-hide]="!currImage.loaded" 
+			(load)="onImageLoaded('currImage')"
+		/>
+		<div class="cg-spinner" *ngIf="!currImage.loaded"></div>
+	</div>
+	
+	<div class="cg-image-wrap cg-next-image">
+		<img 
+			*ngIf="nextImagePath"
+			[src]="nextImagePath.full" 
+			[class.cg-hide]="!nextImage.loaded" 
+			(load)="onImageLoaded('nextImage')"
+		/>
+		<div class="cg-spinner" *ngIf="!nextImage.loaded && nextImagePath"></div>
+	</div>
+</div>

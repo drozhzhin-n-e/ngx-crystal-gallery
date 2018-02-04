@@ -1,28 +1,67 @@
-# CuiGalleryApp
+The module includes a masonry layout and a full-image preview window. Mobile devices are supported.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+## Installation
 
-## Development server
+Install the npm package.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    npm i ngx-crystal-gallery
+        
+Import module:
 
-## Code scaffolding
+	import { CrystalGalleryModule } from 'ngx-crystal-gallery/components';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+	@NgModule({
+	    imports: [ CrystalGalleryModule ]
+	});
 
-## Build
+## Usage
+Default:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+	myImages = [
+		{
+			preview: 'path_to_preview', 
+			full: 'path_to_full_image' 
+		}
+	];
 
-## Running unit tests
+	myConfig = {
+		loop: true
+	};
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+	<crystal-gallery [images]="myImages" [config]="myConfig"></crystal-gallery>
 
-## Running end-to-end tests
+Only overlay:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+	import { CgOverlay } from 'ngx-crystal-gallery/components';
 
-## Further help
+	constructor(private overlay: CgOverlay) {
+	}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+	myImages = [
+		{
+			path: 'path_to_image' 
+		}
+	];
+
+	showOverlay(){
+		this.overlay.open(myImages, myConfig);
+	}
+
+## Properties
+
+| name             | type           | default            | description                                                                                            |
+|------------------|----------------|--------------------|--------------------------------------------------------------------------------------------------------|
+| masonry          | boolean        | true               | Masonry layout mode.                                                                                   |
+| masonryMaxHeight | number         | 200                | Maximum height of the image in the grid.                                                               |
+| masonryGutter    | number         | 3                  | Adds space between images.                                                                             |
+| loop             | boolean        | false              | If false, will disable the ability to loop back to the beginning of the group when on the last element.|
+| opacity          | number         | 0.85               | The overlay opacity level. Range: 0 to 1.                                                              |
+
+## Methods
+
+| name                 | description                              |
+|----------------------|------------------------------------------|
+| open(images, config) | Open the full image in the window.       |
+
+## Demo
+http://crystalui.org/components/gallery

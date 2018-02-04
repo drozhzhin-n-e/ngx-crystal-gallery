@@ -9,7 +9,7 @@ import { CgOverlay } from'./dom.service'
 export class GalleryComponent {
 
     @Input('images') images: any;
-    @Input('prop') prop: any = {};
+    @Input('config') config: any = {};
 
     @ViewChild('contentWrapper') contentWrapper: ElementRef;
 
@@ -18,15 +18,15 @@ export class GalleryComponent {
     }
 
     get masonryState(){
-        return this.prop.masonry;
+        return this.config.masonry;
     }
 
     get masonryMaxHeight(){
-    	return this.prop.masonryMaxHeight;
+    	return this.config.masonryMaxHeight;
     }
 
     get masonryGutter(){
-    	return this.prop.masonryGutter;
+    	return this.config.masonryGutter;
     }
 
 	constructor(
@@ -35,7 +35,7 @@ export class GalleryComponent {
 	) {}
 
 	showOverlay(images: any, i: number){
-        this.prop.index = i;
-		this.overlay.open(images, this.prop);
+        this.config.index = i;
+		this.overlay.open(images, this.config);
 	}
 }

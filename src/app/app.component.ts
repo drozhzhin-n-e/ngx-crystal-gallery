@@ -7,7 +7,7 @@ import { CgOverlay } from './crystal-gallery/dom.service';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	images: any = [
+	myImages: any = [
 		
 		{
 			preview: '/assets/img/virginie-khateeb-1.jpg', 
@@ -91,7 +91,7 @@ export class AppComponent {
 		},
 	];
 
-	prop: any = {
+	myConfig: any = {
 		masonry: true,
 		masonryMaxHeight: 200,
 		masonryGutter: 3,
@@ -104,7 +104,7 @@ export class AppComponent {
 	) {}
 
 	show(){
-        let images = [
+        let myImages = [
     		{
     			path: 'https://images.unsplash.com/photo-1495132280856-0de542e5f919?auto=format&fit=crop&w=1950&q=80'
     		},
@@ -115,11 +115,11 @@ export class AppComponent {
     			path: 'https://images.unsplash.com/photo-1500295771654-ba174ead99a9?auto=format&fit=crop&w=2091&q=80'
     		}
 		];
-		let config = {
+		let myConfig = {
 			masonryGutter: 10,
 			loop: true
 		};
 
-		this.overlay.open(images, config);
+		this.overlay.open(myImages, myConfig);
 	}
 }

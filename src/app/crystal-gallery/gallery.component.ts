@@ -38,4 +38,8 @@ export class GalleryComponent {
         this.config.index = i;
 		this.overlay.open(images, this.config);
 	}
+
+    handleMasonryLayoutEvents(event){
+        this.showOverlay(this.images, event.index);
+    }
 }

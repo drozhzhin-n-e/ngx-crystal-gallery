@@ -7,88 +7,80 @@ import { CgOverlay } from './crystal-gallery/dom.service';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
 	myImages: any = [
-		
 		{
-			preview: '/assets/img/virginie-khateeb-1.jpg', 
-			full: '/assets/img/virginie-khateeb-1.jpg'
+			preview: '/assets/img/yi-sung-tsai-04--vertical--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-04--vertical.jpg',
+			width: 669,
+			height: 1000
 		},
 		{
-			preview: '/assets/img/rasmus-hjortshoj-2.jpg', 
-			full: '/assets/img/rasmus-hjortshoj-2.jpg'
+			preview: '/assets/img/yi-sung-tsai-01--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-01.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/rasmus-hjortshoj-3.jpg', 
-			full: '/assets/img/rasmus-hjortshoj-3.jpg'
+			preview: '/assets/img/yi-sung-tsai-02--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-02.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/rasmus-hjortshoj-5.jpg', 
-			full: '/assets/img/rasmus-hjortshoj-5.jpg'
+			preview: '/assets/img/yi-sung-tsai-03--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-03.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/rasmus-hjortshoj-6.jpg', 
-			full: '/assets/img/rasmus-hjortshoj-6.jpg'
+			preview: '/assets/img/yi-sung-tsai-04--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-04.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/rasmus-hjortshoj-7.jpg', 
-			full: '/assets/img/rasmus-hjortshoj-7.jpg'
+			preview: '/assets/img/yi-sung-tsai-05--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-05.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/2_Island_I-101_710.jpg', 
-			full: '/assets/img/2_Island_I-101_710.jpg'
+			preview: '/assets/img/yi-sung-tsai-06--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-06.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/2_Island_I-102_710.jpg', 
-			full: '/assets/img/2_Island_I-102_710.jpg'
+			preview: '/assets/img/yi-sung-tsai-07--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-07.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/2_Island_I-104_710.jpg', 
-			full: '/assets/img/2_Island_I-104_710.jpg'
+			preview: '/assets/img/yi-sung-tsai-08--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-08.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/2_Island_I-106_710.jpg', 
-			full: '/assets/img/2_Island_I-106_710.jpg'
+			preview: '/assets/img/yi-sung-tsai-09--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-09.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/2_Island_I-107_710.jpg', 
-			full: '/assets/img/2_Island_I-107_710.jpg'
+			preview: '/assets/img/yi-sung-tsai-10--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-10.jpg',
+			width: 1000,
+			height: 669
 		},
 		{
-			preview: '/assets/img/2_Island_I-109_710.jpg', 
-			full: '/assets/img/2_Island_I-109_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_Island_I-110_710.jpg', 
-			full: '/assets/img/2_Island_I-110_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_Island_I-111_710.jpg', 
-			full: '/assets/img/2_Island_I-111_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_Island_I-112_710.jpg', 
-			full: '/assets/img/2_Island_I-112_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_Island_I-113_710.jpg', 
-			full: '/assets/img/2_Island_I-113_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_Island_I-115_710.jpg', 
-			full: '/assets/img/2_Island_I-115_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_IslandB-100-5_710.jpg', 
-			full: '/assets/img/2_IslandB-100-5_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_Island_I-119_710.jpg', 
-			full: '/assets/img/2_Island_I-119_710.jpg'
-		},
-		{
-			preview: '/assets/img/2_Island_I-127_710.jpg', 
-			full: '/assets/img/2_Island_I-127_710.jpg'
-		},
+			preview: '/assets/img/yi-sung-tsai-11--preview.jpg',
+			full: '/assets/img/yi-sung-tsai-11.jpg',
+			width: 1000,
+			height: 669
+		}
 	];
 
 	myConfig: any = {

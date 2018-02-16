@@ -4,7 +4,7 @@ import { OverlayComponent } from './overlay.component';
 import { OverlayMobileComponent } from './overlay-mobile.component';
 import { GalleryComponent } from './gallery.component';
 import { CgOverlay } from'./dom.service' 
-import { MasonryLayoutDirective } from './masonry-layout.directive'; 
+import { MasonryLayoutComponent } from './masonry-layout.component'; 
 import { PinchDirective } from './pinch.directive'; 
 
 @NgModule({
@@ -12,7 +12,7 @@ import { PinchDirective } from './pinch.directive';
         OverlayComponent,
         OverlayMobileComponent,
         GalleryComponent,
-        MasonryLayoutDirective,
+        MasonryLayoutComponent,
         PinchDirective
     ],
     imports: [

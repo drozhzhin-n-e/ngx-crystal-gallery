@@ -1,0 +1,10 @@
+.actions {
+	margin: 5px 10px;
+}
+.actions .option {
+	display: inline-block;
+	margin: 5px;
+}
+.actions .option input[type="number"] {
+	width: 50px;
+}

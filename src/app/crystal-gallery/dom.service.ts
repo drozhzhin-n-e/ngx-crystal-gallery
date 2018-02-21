@@ -63,6 +63,9 @@ export class CgOverlay {
 	}
 
 	applyConfigDefaults(defaultConfig, config){
+		if (!config.index){ 
+			config.index = 0;
+		}
 		return Object.assign(defaultConfig, config);
 	}
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, ViewChild, OnChanges } from '@angular/core';
 import { CgOverlay } from'./dom.service'
 
 @Component({
@@ -33,6 +33,10 @@ export class GalleryComponent {
 		private overlay: CgOverlay,
 		private elementRef: ElementRef
 	) {}
+
+    ngOnChanges(){
+        console.log(this.config);
+    }
 
 	showOverlay(images: any, i: number){
         this.config.index = i;

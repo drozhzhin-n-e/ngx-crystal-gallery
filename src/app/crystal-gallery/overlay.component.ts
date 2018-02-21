@@ -12,7 +12,7 @@ export class OverlayComponent {
     prevImageHide: any;
     wrapperProp: any;
     _data: any;
-    currentImageIndex: number;
+    currentImageIndex: number = 0;
 
     @Input() data: any;
 
@@ -39,9 +39,14 @@ export class OverlayComponent {
     get currImagePath(){
         let image = this.images[this.index];
 
+        if (!image){
+            return false;
+        }
+
         if (image.path){
             image.full = image.path;
         }
+
         return image;
     }
 
@@ -121,7 +126,12 @@ export class OverlayComponent {
 
     ngOnInit(){
         this.setBackgroundOpacity(this.config.opacity);
-        this.currentImageIndex = this.config.index;
+
+        if (this.config.index){
+            this.currentImageIndex = this.config.index;
+        } else {
+            this.currentImageIndex = 0;
+        }
 
         setTimeout(() => {
             this.showOverlay = true;
@@ -145,7 +155,6 @@ export class OverlayComponent {
         } else {
             this.currentImageIndex++;
         }
-
         this.currImageLoaded = 'loading';
 
         setTimeout(() => {

@@ -8,6 +8,12 @@ import { CgOverlay } from './crystal-gallery/dom.service';
 })
 export class AppComponent {
 
+	masonry:boolean = true;
+	masonryMaxHeight:number = 270;
+	masonryGutter:number = 4;
+	loop:boolean = true;
+	opacity:number = 0.95;
+
 	myImages: any = [
 		{
 			preview: '/assets/img/yi-sung-tsai-04--vertical--preview.jpg',
@@ -75,20 +81,22 @@ export class AppComponent {
 			width: 1000,
 			height: 669
 		},
+		/*
 		{
 			preview: '/assets/img/yi-sung-tsai-11--preview.jpg',
 			full: '/assets/img/yi-sung-tsai-11.jpg',
 			width: 1000,
 			height: 669
 		}
+		*/
 	];
 
 	myConfig: any = {
-		masonry: true,
-		masonryMaxHeight: 200,
-		masonryGutter: 3,
-		loop: false,
-		opacity: 0.95
+		masonry: this.masonry,
+		masonryMaxHeight: this.masonryMaxHeight,
+		masonryGutter: this.masonryGutter,
+		loop: this.loop,
+		opacity: this.opacity
 	} 
 
 	constructor(
@@ -113,5 +121,15 @@ export class AppComponent {
 		};
 
 		this.overlay.open(myImages, myConfig);
+	}
+
+	updateConfig(){
+		this.myConfig = {
+			masonry: this.masonry,
+			masonryMaxHeight: this.masonryMaxHeight,
+			masonryGutter: this.masonryGutter,
+			loop: this.loop,
+			opacity: this.opacity
+		} 
 	}
 }

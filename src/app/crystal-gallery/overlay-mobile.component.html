@@ -17,7 +17,7 @@
 
 	<div class="cg-image-wrap cg-curr-image" *ngIf="currImage.show">
 		<img 
-			[src]="currImagePath.full" 
+			[src]="currImagePath?.full" 
 			[class.cg-hide]="!currImage.loaded" 
 			(load)="onImageLoaded('currImage')"
 		/>

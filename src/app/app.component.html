@@ -1,3 +1,21 @@
+<div class="actions">
+	<div class="option">
+		<label>masonry: <input type="checkbox" name="isMasonry" [(ngModel)]="masonry" (change)="updateConfig()"></label>
+	</div>
+	<div class="option">
+		<label>max-height: <input type="number" [(ngModel)]="masonryMaxHeight" (change)="updateConfig()"></label>
+	</div>
+	<div class="option">
+		<label>gutter: <input type="number" [(ngModel)]="masonryGutter" (change)="updateConfig()"></label>
+	</div>
+	<div class="option">
+		<label>loop: <input type="checkbox" name="isLoop" [(ngModel)]="loop" (change)="updateConfig()"></label>
+	</div>
+	<div class="option">
+		<label>opacity: <input type="number" [(ngModel)]="opacity" (change)="updateConfig()"></label>
+	</div>
+</div>
+
 <crystal-gallery [images]="myImages" [config]="myConfig"></crystal-gallery>
 
 <p><a href="#" (click)="show()">Show</a></p>

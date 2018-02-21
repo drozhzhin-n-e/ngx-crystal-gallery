@@ -14,7 +14,7 @@
 	<img 
 		class="cg-curr-image" 
 		#currImageElem 
-		[src]="currImagePath.full" 
+		[src]="currImagePath?.full" 
 		[class.cg-show]="currImageLoaded" 
 		(load)="onImageLoaded()"
 	/>

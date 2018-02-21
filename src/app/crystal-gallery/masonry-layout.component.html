@@ -1,14 +1,18 @@
 <div 
-	[className]="CLASS_NAME"
-	*ngFor="let image of images; let i = index;"
+    [className]="CLASS_NAME"
+    *ngFor="let image of images; let i = index;"
     [style.width]="image.computedWidth"
     [style.height]="image.computedHeight"
     [style.float]="'left'"
     [style.margin]="image.margin"
+    [style.background]="'#eeeeee'"
     [style.lineHeight]="0">
-	<img 
+    <img 
+        #imageElem
         [src]="image.preview || image.full" 
         [style.width.%]="100" 
         [style.height]="'auto'"
-        (click)="clickOnImage(image, i)" />
+        [style.opacity]="0"
+        (click)="clickOnImage(image, i)"
+        (load)="onImageLoaded(imageElem)" />
 </div>

@@ -48,13 +48,22 @@ export class OverlayMobileComponent {
     get currImagePath(){
         let image = this.images[this.index];
 
+        if (!image){
+            return false;
+        }
+
         if (image.path){
             image.full = image.path;
         }
+        
         return image;
     }
 
     get prevImagePath(){
+        if (this.prevIndex < 0 && this.config.loop){
+            this.prevIndex = this.latestImageIndex;
+        }
+
         let image = this.images[this.prevIndex];
 
         if (image && image.path){
@@ -73,11 +82,19 @@ export class OverlayMobileComponent {
     }
 
     get isFirst(){
-    	return this.index === 0;
+        if (this.config.loop){
+            return false;
+        } else {
+    	    return this.index === 0;
+        }
     }
 
     get isLast(){
-    	return this.index === this.latestImageIndex;
+        if (this.config.loop){
+            return false;
+        } else {
+            return this.index === this.latestImageIndex;
+        }        
     }
 
     get latestImageIndex(){
@@ -123,18 +140,18 @@ export class OverlayMobileComponent {
 
     slide(event: any){
         if (event === 'next'){
-
+            
             if (this.isLast){
-                if (!this.config.loop){
-                    return;
-                } else {
-                    setTimeout(() => {
-                        this.currImage.index = 0;
-                    }, 200); 
-                }
+                return;
             } else {
                 setTimeout(() => {
                     this.currImage.index++;
+                }, 200); 
+            }
+
+            if (this.index === this.latestImageIndex){
+                setTimeout(() => {
+                    this.currImage.index = 0;
                 }, 200); 
             }
 
@@ -146,16 +163,16 @@ export class OverlayMobileComponent {
         if (event === 'prev'){
 
             if (this.isFirst){
-                if (!this.config.loop){
-                    return;
-                } else {
-                    setTimeout(() => {
-                        this.currImage.index = this.latestImageIndex;
-                    }, 200); 
-                }
+                return;
             } else {
                 setTimeout(() => {
                     this.currImage.index--;
+                }, 200); 
+            }
+
+            if (this.index === 0){
+                setTimeout(() => {
+                    this.currImage.index = this.latestImageIndex;
                 }, 200); 
             }
 

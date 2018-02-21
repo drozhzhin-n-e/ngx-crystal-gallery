@@ -126,12 +126,7 @@ export class OverlayComponent {
 
     ngOnInit(){
         this.setBackgroundOpacity(this.config.opacity);
-
-        if (this.config.index){
-            this.currentImageIndex = this.config.index;
-        } else {
-            this.currentImageIndex = 0;
-        }
+        this.currentImageIndex = this.config.index;
 
         setTimeout(() => {
             this.showOverlay = true;

@@ -3,7 +3,12 @@
   width: 100%; }
   :host .cg-wrapper {
     display: block;
-    width: 100%; }
+    width: 100%;
+    overflow: hidden; }
+  :host .cg-wrapper.cg-show {
+    height: auto;
+    position: relative;
+    display: table; }
   :host .cg-image img {
     cursor: pointer;
     width: 100%; }

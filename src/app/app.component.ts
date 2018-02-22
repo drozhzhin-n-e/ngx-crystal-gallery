@@ -116,7 +116,6 @@ export class AppComponent {
     		}
 		];
 		let myConfig = {
-			masonryGutter: 10,
 			loop: true
 		};
 

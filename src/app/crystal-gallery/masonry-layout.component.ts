@@ -146,7 +146,11 @@ export class MasonryLayoutComponent {
                 // last row and last image
                 if (index === row.endIndex && row.length === 1 && this.isMobile){
                     nodeWidth = 100 - ((this.GUTTER * 2) / parentWidth * 100);
-                    node.computedWidth = 'calc('+nodeWidth+'%)';
+                    let height = node.height * ( parentWidth * (nodeWidth / 100) / node.width);
+
+                    if (height/2 < this.MAX_HEIGHT){
+                        node.computedWidth = 'calc('+nodeWidth+'%)';
+                    }
                 }
 
                 node.margin = this.getNodeMargin(parentWidth);

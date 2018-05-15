@@ -72,6 +72,6 @@ http://crystalui.org/components/gallery
 
 ## Sponsors
 
-We use Browserstack 
+We use Browserstack for cross-browser testing.
 
 [![Browserstack](http://crystalui.org/assets/img/browserstack-logo.png)](http://browserstack.com/)

@@ -1,0 +1,28 @@
+<div class="cg-counter" *ngIf="config.counter && images.length > 1">{{counter}}</div>
+<div class="cg-description" *ngIf="description">{{description}}</div>
+
+<div 
+	class="cg-close" 
+	(click)="closeLightbox()">Close</div>
+
+<div 
+	class="cg-spinner" 
+	 *ngIf="!currImageLoaded"></div>
+
+<div class="cg-wrapper" #wrapper>
+	<img 
+		class="cg-curr-image" 
+		#currImageElem 
+		[src]="currImagePath?.full" 
+		[class.cg-show]="currImageLoaded" 
+		(load)="onImageLoaded()" />
+</div>
+
+<div 
+	class="cg-prev" 
+	[hidden]="isFirst && !config.loop" 
+	(click)="prev()"></div>
+<div 
+	class="cg-next" 
+	[hidden]="isLast && !config.loop" 
+	(click)="next()"></div>

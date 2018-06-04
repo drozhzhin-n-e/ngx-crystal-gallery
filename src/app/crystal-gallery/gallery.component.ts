@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { CgOverlay } from'./dom.service'
+import { CrystalLightbox } from'./dom.service'
 
 @Component({
 	selector: 'crystal-gallery', 
@@ -30,16 +30,16 @@ export class GalleryComponent {
     }
 
 	constructor(
-		private overlay: CgOverlay,
+		private lightbox: CrystalLightbox,
 		private elementRef: ElementRef
 	) {}
 
-	showOverlay(images: any, i: number){
+	showLightbox(images: any, i: number){
         this.config.index = i;
-		this.overlay.open(images, this.config);
+		this.lightbox.open(images, this.config);
 	}
 
     handleMasonryLayoutEvents(event){
-        this.showOverlay(this.images, event.index);
+        this.showLightbox(this.images, event.index);
     }
 }

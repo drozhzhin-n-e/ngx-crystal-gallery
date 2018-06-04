@@ -6,12 +6,10 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
 import { CrystalGalleryModule } from './crystal-gallery/gallery.module';
-import { TooltipDirective } from 'ng2-tooltip-directive/overlay';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        TooltipDirective
+        AppComponent
     ],
     imports: [
         BrowserModule,

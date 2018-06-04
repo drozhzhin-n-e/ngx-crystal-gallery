@@ -1,0 +1,94 @@
+._cg-spinner,
+._cg-spinner:after
+  border-radius: 50%
+  width: 36px
+  height: 36px
+
+._cg-spinner
+  margin: 0 auto
+  font-size: 10px
+  position: relative
+  text-indent: -9999em
+  border-top: 4px solid rgba(255, 255, 255, 0.2)
+  border-right: 4px solid rgba(255, 255, 255, 0.2)
+  border-bottom: 4px solid rgba(255, 255, 255, 0.2)
+  border-left: 4px solid #ffffff
+  -webkit-transform: translateZ(0)
+  -ms-transform: translateZ(0)
+  transform: translateZ(0)
+  -webkit-animation: load8 900ms infinite linear
+  animation: load8 900ms infinite linear
+
+@-webkit-keyframes load8
+  0%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+
+  100% 
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+@keyframes load8
+  0%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+  
+  100% 
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+.cg-spinner,
+.cg-spinner:before,
+.cg-spinner:after
+  border-radius: 50%
+  width: 10px
+  height: 10px
+  -webkit-animation-fill-mode: both
+  animation-fill-mode: both
+  -webkit-animation: load7 1.5s infinite ease-in-out
+  animation: load7 1.5s infinite ease-in-out
+
+.cg-spinner
+  color: #ffffff
+  font-size: 10px
+  margin: 0 auto
+  margin-bottom: 20px 
+  position: relative
+  text-indent: -9999em
+  -webkit-transform: translateZ(0)
+  -ms-transform: translateZ(0)
+  transform: translateZ(0)
+  -webkit-animation-delay: -0.16s
+  animation-delay: -0.16s
+
+.cg-spinner:before,
+.cg-spinner:after
+  content: ''
+  position: absolute
+  top: 0
+
+.cg-spinner:before
+  left: -3em
+  -webkit-animation-delay: -0.32s
+  animation-delay: -0.32s
+
+.cg-spinner:after
+  left: 3em
+
+@-webkit-keyframes load7 
+  0%,
+  80%,
+  100%
+    box-shadow: 0 2.5em 0 -1.3em
+  
+  40%
+    box-shadow: 0 2.5em 0 0
+  
+@keyframes load7
+  0%,
+  80%,
+  100%
+    box-shadow: 0 10px 0 -1.3em
+
+  40% 
+    box-shadow: 0 10px 0 0

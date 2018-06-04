@@ -1,11 +1,11 @@
 import { Component, Input, EventEmitter, OnInit, HostBinding, HostListener, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 
 @Component({
-	selector: 'crystal-overlay-mobile',
-	templateUrl: './overlay-mobile.component.html',
-    styleUrls: ['./css/overlay-mobile.component.css']
+	selector: 'crystal-lightbox-mobile',
+	templateUrl: './lightbox-mobile.component.html',
+    styleUrls: ['./css/lightbox-mobile.component.css']
 })
-export class OverlayMobileComponent { 
+export class LightboxMobileComponent { 
 	_index: any;
     prevIndex: any;
     nextIndex: any;
@@ -105,7 +105,7 @@ export class OverlayMobileComponent {
         return window.innerWidth > window.innerHeight;
     }
 
-    @HostBinding('class.cg-show') overlayShown: boolean = false;
+    @HostBinding('class.cg-show') lightboxShown: boolean = false;
 
     @HostListener('window:resize', ['$event'])
     onWindowResize(event: any) {
@@ -121,18 +121,18 @@ export class OverlayMobileComponent {
         this.prevIndex = this.currImage.index-1;
         this.nextIndex = this.currImage.index+1;
 
-        this.showOverlay();
+        this.showLightbox();
     }
 
-    showOverlay(){
+    showLightbox(){
         this.currImage.show = true;
         setTimeout(() => {
-           this.overlayShown = true;
+           this.lightboxShown = true;
         }, 30);
     }
 
-	closeOverlay(){
-		this.overlayShown = false;
+	closeLightbox(){
+		this.lightboxShown = false;
         setTimeout(() => {
            this.close.emit(true);
         }, 200); 

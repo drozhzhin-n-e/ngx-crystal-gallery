@@ -1,28 +1,42 @@
-import { Component, Input, EventEmitter, OnInit, HostBinding, HostListener, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { 
+    Component, 
+    Input, 
+    EventEmitter, 
+    OnInit, 
+    HostBinding, 
+    HostListener, 
+    ViewChild, 
+    ElementRef, 
+    ChangeDetectorRef } from '@angular/core';
 
 @Component({
-	selector: 'crystal-overlay',
-	templateUrl: './overlay.component.html',
-    styleUrls: ['./css/overlay.component.css']
+    selector: 'crystal-lightbox',
+    templateUrl: './lightbox.component.html',
+    styleUrls: ['./css/lightbox.component.css']
 })
-export class OverlayComponent {
-	_index: any;
+export class LightboxComponent {
+    _index: any;
     prevIndex: any;
     currImageLoaded: any; 
     prevImageHide: any;
     wrapperProp: any;
     _data: any;
     currentImageIndex: number = 0;
+    spinnerHeight: number = 30;
+    descriptionHeight: number = 43;
 
     @Input() data: any;
 
-	close = new EventEmitter();
+    close = new EventEmitter();
 
-	@HostBinding('class.cg-show') showOverlay: boolean = false;
+    @HostBinding('class.cg-show') showLightbox: boolean = false;
     @HostBinding('class.cg-hide-controls') hideControls: boolean = false;
+    @HostBinding('style.transition') hostStyleTransition: string;
+    @HostBinding('style.backgroundColor') hostStyleBackgroundColor: string;
 
     @ViewChild('currImageElem') currImageElem: ElementRef;
     @ViewChild('prevImageElem') prevImageElem: ElementRef;
+    @ViewChild('wrapper') wrapperElem: ElementRef;
 
     get images(){
         return this.data.images;
@@ -59,33 +73,23 @@ export class OverlayComponent {
     }
 
     get isFirst(){
-    	return this.index === 0;
+        return this.index === 0;
     }
 
     get isLast(){
-    	return this.index === (this.images.length-1);
+        return this.index === (this.images.length-1);
     }
 
     get latestImageIndex(){
         return this.images.length - 1;
     }
 
-    get windowWidth(){
-        return window.innerWidth;
-    }
-    get windowHeight(){
-        return window.innerHeight;
+    get description(){
+        return this.images[this.index].description;
     }
 
-    get wrapperWidth(){
-        if (this.wrapperProp){
-            return this.wrapperProp.width / this.windowWidth;
-        }
-    }
-    get wrapperHeight(){
-        if (this.wrapperProp){
-            return this.wrapperProp.height / this.windowHeight
-        }
+    get counter(){
+        return this.currentImageIndex + 1 +'/'+ this.images.length;
     }
 
     @HostListener('window:keydown', ['$event'])
@@ -98,7 +102,7 @@ export class OverlayComponent {
                 this.next();
                 break;
             case 'Escape':
-                this.closeOverlay();
+                this.closeLightbox();
                 break;
         }
     }
@@ -108,44 +112,36 @@ export class OverlayComponent {
         this.hideControls = false;
     }
 
-/*
-    @HostListener("mouseleave", ['$event'])
-    onMouseLeave(event: any) {
-        setTimeout(() => {
-            this.hideControls = true;
-        }, 3000);
-    }
-*/
-    @HostListener('window:resize', ['$event'])
-    onWindowResize(event: any) {
-        this.wrapperProp = this.getDimensions('currImageElem');
-    }
-
     constructor(private elementRef: ElementRef, private ref: ChangeDetectorRef){
     }
 
     ngOnInit(){
-        this.setBackgroundOpacity(this.config.opacity);
+        this.setBackgroundOpacity(this.config.backgroundOpacity);
         this.currentImageIndex = this.config.index;
+        //document.body.style.overflow = 'hidden';
 
         setTimeout(() => {
-            this.showOverlay = true;
+            this.showLightbox = true;
         }, 30);
+
+        this.setMaxDimensions();
+        this.setAnimationDuration();
     }
 
-	closeOverlay(){
-		this.showOverlay = false;
+    closeLightbox(){
+        this.showLightbox = false;
         setTimeout(() => {
            this.close.emit('close');
-        }, 200); 
-	}
+           //document.body.style.overflow = '';
+        }, this.config.animationDuration); 
+    }
 
-	next(){
+    next(){
         if (this.isLast){
-            if (!this.config.loop){
-                return;
-            } else {
+            if (this.config.loop){
                 this.currentImageIndex = 0;
+            } else {
+                return;
             }
         } else {
             this.currentImageIndex++;
@@ -157,13 +153,15 @@ export class OverlayComponent {
                 this.currImageLoaded = false;
             }
         }, 50);
-	}
-	prev(){
+
+        this.setMaxDimensions();
+    }
+    prev(){
         if (this.isFirst){
-            if (!this.config.loop){
-                return;
-            } else {
+            if (this.config.loop){
                 this.currentImageIndex = this.latestImageIndex;
+            } else {
+                return;
             }
         } else {
             this.currentImageIndex--;
@@ -174,37 +172,31 @@ export class OverlayComponent {
                 this.currImageLoaded = false;
             }
         }, 50);
-	}
+
+        this.setMaxDimensions();
+    }
 
     onImageLoaded(){
         this.currImageLoaded = true;
         this.ref.detectChanges();
-        this.transitionAnim();
-    }
-
-    transitionAnim(){
-        this.wrapperProp = this.getDimensions('currImageElem');
-    }
-
-    getDimensions(elem: any){
-        let imageElem = this[elem].nativeElement;
-        let dimensions = {
-            width: imageElem.naturalWidth,
-            height: imageElem.naturalHeight
-        }
-
-        if (dimensions.height > window.innerHeight){
-            dimensions.height = window.innerHeight;
-            dimensions.width = dimensions.height * (imageElem.naturalWidth/imageElem.naturalHeight);
-        }
-        if (dimensions.width > window.innerWidth){
-            dimensions.width = window.innerWidth;
-            dimensions.height = dimensions.width / (imageElem.naturalWidth/imageElem.naturalHeight);
-        }
-        return dimensions;
     }
 
     setBackgroundOpacity(opacity: any){
-        this.elementRef.nativeElement.style.backgroundColor = 'rgba(0, 0, 0, '+opacity+')';
+        this.hostStyleBackgroundColor = 'rgba(0, 0, 0, '+opacity+')';
+    }
+
+    setMaxDimensions(){
+        if (this.description){
+            this.wrapperElem.nativeElement.style.height = 'calc(100% - ' + (this.descriptionHeight * 2) + 'px)';
+        } else {
+            this.wrapperElem.nativeElement.style.height = '';
+        }
+
+        this.currImageElem.nativeElement.style.maxHeight = 'calc(' + this.config.lightboxMaxHeight + ')';
+        this.currImageElem.nativeElement.style.maxWidth = this.config.lightboxMaxWidth;
+    }
+
+    setAnimationDuration(){
+        this.hostStyleTransition = 'opacity '+this.config.animationDuration+'ms';
     }
 }

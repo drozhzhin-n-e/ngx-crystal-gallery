@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OverlayComponent } from './overlay.component';
-import { OverlayMobileComponent } from './overlay-mobile.component';
+import { LightboxComponent } from './lightbox.component';
+import { LightboxMobileComponent } from './lightbox-mobile.component';
 import { GalleryComponent } from './gallery.component';
-import { CgOverlay } from'./dom.service' 
+import { CrystalLightbox } from'./dom.service' 
 import { MasonryLayoutComponent } from './masonry-layout.component'; 
 import { PinchDirective } from './pinch.directive'; 
 
 @NgModule({
     declarations: [
-        OverlayComponent,
-        OverlayMobileComponent,
+        LightboxComponent,
+        LightboxMobileComponent,
         GalleryComponent,
         MasonryLayoutComponent,
         PinchDirective
@@ -22,14 +22,14 @@ import { PinchDirective } from './pinch.directive';
         GalleryComponent
     ],
     providers: [
-        CgOverlay
+        CrystalLightbox
     ],
     bootstrap: [
         
     ],
     entryComponents: [
-        OverlayComponent,
-        OverlayMobileComponent
+        LightboxComponent,
+        LightboxMobileComponent
     ]
 })
 export class CrystalGalleryModule { }

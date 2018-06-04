@@ -2,24 +2,6 @@
     <ng-content></ng-content>
 </div>
 
-<!--
-<div 
-	class="cg-wrapper"
-	*ngIf="!isNgContent" 
-	masonry-layout 
-	[max-height]="masonryMaxHeight" 
-	[gutter]="masonryGutter"
-    [masonry]="masonryState"
->
-    <div 
-    	class="cg-image" 
-    	*ngFor="let image of images; index as i"
-    >
-    	<img [src]="image.preview" (click)="showOverlay(images, i)" />
-    </div>
-</div>
--->
-
 <masonry-layout 
     class="cg-wrapper"
     *ngIf="!isNgContent" 
@@ -28,6 +10,5 @@
     [gutter]="masonryGutter"
     [masonry]="masonryState"
     [class-name]="'cg-image'"
-
     [images]="images"
     (events)="handleMasonryLayoutEvents($event)"></masonry-layout>

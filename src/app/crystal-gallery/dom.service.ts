@@ -7,8 +7,8 @@ import {
     ComponentRef
 } from '@angular/core';
 
-import { OverlayComponent } from './overlay.component';
-import { OverlayMobileComponent } from './overlay-mobile.component';
+import { LightboxComponent } from './lightbox.component';
+import { LightboxMobileComponent } from './lightbox-mobile.component';
 import { defaultConfig } from './config';
 
 export interface AdComponent {
@@ -17,7 +17,7 @@ export interface AdComponent {
 }
 
 @Injectable()
-export class CgOverlay {
+export class CrystalLightbox {
 
     get isMobile() {
         var check = false;
@@ -53,13 +53,13 @@ export class CgOverlay {
 			images, 
 			config
 		};
-        let component = this.getOverlayComponent();
+        let component = this.getLightboxComponent();
         
 		this.appendComponentToBody(component, data);
 	}
 
-	getOverlayComponent(){
-		return !this.isMobile ? OverlayComponent : OverlayMobileComponent;
+	getLightboxComponent(){
+		return !this.isMobile ? LightboxComponent : LightboxMobileComponent;
 	}
 
 	applyConfigDefaults(defaultConfig, config){

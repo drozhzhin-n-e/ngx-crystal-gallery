@@ -4,5 +4,9 @@ export const defaultConfig = {
 	masonryGutter: 4,
 	loop: false,
 	index: 0,
-	opacity: 0.85
+	backgroundOpacity: 0.85,
+	counter: false,
+	lightboxMaxHeight: "100%",
+	lightboxMaxWidth: "100%",
+	animationDuration: 100
 }

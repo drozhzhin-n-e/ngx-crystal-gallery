@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { DemoComponent } from './demo.component';
 
 import { CrystalGalleryModule } from './crystal-gallery/gallery.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        DemoComponent
     ],
     imports: [
         BrowserModule,
@@ -21,10 +21,10 @@ import { CrystalGalleryModule } from './crystal-gallery/gallery.module';
         
     ],
     bootstrap: [
-        AppComponent
+        DemoComponent
     ],
     entryComponents: [
         
     ]
 })
-export class AppModule { }
+export class DemoModule { }

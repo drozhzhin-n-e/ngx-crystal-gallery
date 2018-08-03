@@ -3,25 +3,23 @@ import { CrystalLightbox } from './crystal-gallery/dom.service';
 
 @Component({
 	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+	templateUrl: './demo.component.html',
+	styleUrls: ['./demo.component.css']
 })
-export class AppComponent {
+export class DemoComponent {
 
 	myImages: any = [
 		{
 			preview: '/assets/img/yi-sung-tsai-04--vertical--preview.jpg',
 			full: '/assets/img/yi-sung-tsai-04--vertical.jpg',
 			width: 669,
-			height: 1000,
-			description: 'At vero eos et accusamus et iusto odio dignissimos'
+			height: 1000
 		},
 		{
 			preview: '/assets/img/yi-sung-tsai-01--preview.jpg',
 			full: '/assets/img/yi-sung-tsai-01.jpg',
 			width: 1000,
-			height: 669,
-			description: 'Et harum quidem rerum'
+			height: 669
 		},
 		{
 			preview: '/assets/img/yi-sung-tsai-03--preview.jpg',
@@ -33,8 +31,7 @@ export class AppComponent {
 			preview: '/assets/img/yi-sung-tsai-05--preview.jpg',
 			full: '/assets/img/yi-sung-tsai-05.jpg',
 			width: 1000,
-			height: 669,
-			description: 'Temporibus autem quibusdam et aut officiis debitis aut rerum'
+			height: 669
 		},
 		{
 			preview: '/assets/img/yi-sung-tsai-06--preview.jpg',
@@ -46,8 +43,7 @@ export class AppComponent {
 			preview: '/assets/img/yi-sung-tsai-07--preview.jpg',
 			full: '/assets/img/yi-sung-tsai-07.jpg',
 			width: 1000,
-			height: 669,
-			description: 'Nemo enim ipsam voluptatem'
+			height: 669
 		},
 		{
 			preview: '/assets/img/yi-sung-tsai-08--preview.jpg',
@@ -59,15 +55,13 @@ export class AppComponent {
 			preview: '/assets/img/yi-sung-tsai-09--preview.jpg',
 			full: '/assets/img/yi-sung-tsai-09.jpg',
 			width: 1000,
-			height: 669,
-			description: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam'
+			height: 669
 		},
 		{
 			preview: '/assets/img/yi-sung-tsai-10--preview.jpg',
 			full: '/assets/img/yi-sung-tsai-10.jpg',
 			width: 1000,
-			height: 669,
-			description: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil '
+			height: 669
 		},
 	];
 

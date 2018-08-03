@@ -1,13 +1,13 @@
 <div 
-    [className]="CLASS_NAME"
-    *ngFor="let image of images; let i = index;"
+	[ngClass]="CLASS_NAME"
+	*ngFor="let image of images; let i = index;"
     [style.width]="image.computedWidth"
     [style.height]="image.computedHeight"
     [style.float]="'left'"
     [style.margin]="image.margin"
     [style.background]="'#eeeeee'"
     [style.lineHeight]="0">
-    <img 
+	<img 
         #imageElem
         [src]="image.preview || image.full" 
         [style.width.%]="100" 
